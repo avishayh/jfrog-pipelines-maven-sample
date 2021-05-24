@@ -1,4 +1,4 @@
-gitProvider: avishayh_jfrog
+gitProvider: avishayh_github
 artifactory: art_v
 repoPath: avishayh-jfrog/jfrog-pipelines-maven-sample
 deployerRepo: maven-local
