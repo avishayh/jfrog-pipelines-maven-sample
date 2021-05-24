@@ -2,19 +2,19 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: mvn_repo
+  - name: avishayh_mvn_repo
     type: GitRepo
     configuration:
       path: {{ .Values.repoPath }}
       gitProvider: {{ .Values.gitProvider }}
 
-  - name: mvn_build_info
+  - name: avishayh_mvn_build_info
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.artifactory }}
 
 pipelines:
-  - name: demo_maven
+  - name: avishayh_demo_maven
     steps:
       - name: mvn_build_step
         type: MvnBuild
@@ -22,7 +22,7 @@ pipelines:
           deployerSnapshotRepo: {{ .Values.deployerRepo }}
           deployerReleaseRepo: {{ .Values.deployerRepo }}
           inputResources:
-            - name: mvn_repo
+            - name: avishayh_mvn_repo
           integrations:
             - name: {{ .Values.artifactory }}
 
@@ -33,4 +33,4 @@ pipelines:
           inputSteps:
             - name: mvn_build_step
           outputResources:
-            - name: mvn_build_info
+            - name: avishayh_mvn_build_info
